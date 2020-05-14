@@ -4,10 +4,24 @@ public class Book {
 
     private String bookTitle;
     private int bookYear;
-    private String authorFirstName;
-    private String authorLastName;
-    private String publisherName;
-    private String publisherCity;
+    private Publisher publisher;
+    private Author author;
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
     public String getBookTitle() {
         return bookTitle;
@@ -25,53 +39,13 @@ public class Book {
         this.bookYear = bookYear;
     }
 
-    public String getAuthorFirstName() {
-        return authorFirstName;
-    }
-
-    public void setAuthorFirstName(String authorFirstName) {
-        this.authorFirstName = authorFirstName;
-    }
-
-    public String getAuthorLastName() {
-        return authorLastName;
-    }
-
-    public void setAuthorLastName(String authorLastName) {
-        this.authorLastName = authorLastName;
-    }
-
-    public String getPublisherName() {
-        return publisherName;
-    }
-
-    public void setPublisherName(String publisherName) {
-        this.publisherName = publisherName;
-    }
-
-    public String getPublisherCity() {
-        return publisherCity;
-    }
-
-    public void setPublisherCity(String publisherCity) {
-        this.publisherCity = publisherCity;
-    }
-
-    public String getFormattedPublisherName() {
-        return String.format("%s, %s", getPublisherName(), getPublisherCity());
-    }
-
-    public String getFormattedAuthorName() {
-        return String.format("%s, %s", getAuthorLastName(), getAuthorFirstName());
-    }
-
     public String getFormattedBookName() {
         return String.format(
                 "%s (%s)\nWritten by %s\nPublished by %s",
                 getBookTitle(),
                 getBookYear(),
-                getFormattedAuthorName(),
-                getFormattedPublisherName()
+                author.getFormattedAuthorName(),
+                publisher.getFormattedPublisherName()
         );
     }
 }
